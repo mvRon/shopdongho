@@ -27,6 +27,8 @@ public class OrderService {
     @Autowired
     private CartService cartService;
 
+    private double total = 0;
+
     @Transactional
     public Order createOrder(String customerName, String address,
                              String email, String note, Long phoneNumber, String payment, List<CartItem> cartItems){
@@ -44,8 +46,14 @@ public class OrderService {
             detail.setOrder(order);
             detail.setProduct(item.getProduct());
             detail.setQuantity(item.getQuantity());
+            detail.setTotal(item.getQuantity() * item.getProduct().getPrice());
+            total += item.getQuantity() * item.getProduct().getPrice();
+            order.setTotal(total);
+            order = orderRepository.save(order);
             orderDetailRepository.save(detail);
         }
+
+
         cartService.clearCart();
         return order;
     }

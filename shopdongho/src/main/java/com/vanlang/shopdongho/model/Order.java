@@ -25,6 +25,7 @@ public class Order {
     private String note;
     private String email;
     private String payment;
+    private double total;
 
     @OneToMany(mappedBy = "order")
     private List<OrderDetail> orderDetails;
