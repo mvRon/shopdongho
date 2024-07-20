@@ -1,0 +1,30 @@
+.services{
+    background-image: linear-gradient(whitesmoke,white);
+    font-weight: 600;
+    display: block;
+}
+.service-menu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0px 20px 0px;
+}
+.service-menu img{
+    width: 400px;
+    height: 350px;
+    border-radius: 10px;
+}
+.service-infor{
+    text-align: center;
+    width: 400px;
+}
+.service-infor h2{
+    font-size: 35px;
+}
+.service-infor p{
+    margin: 12px;
+    font-size: 18px;
+    padding: 20px;
+    border: 0.5px solid gray;
+    border-radius: 10px;
+}
