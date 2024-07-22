@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Layout</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="icon" th:href="@{/IMG/logo.jpg}" sizes="">
     <link rel="stylesheet" th:href="@{/CSS/home.css}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
@@ -16,26 +15,22 @@
     <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Two+Tone" rel="stylesheet">
 </head>
 <body>
-
-
 <div class="containerms">
     <table class="main">
         <tr>
             <td class="main-title"><p>Nhóm 2</p></td>
             <td class="main-title"><a th:href="@{/}"><img th:src="@{/IMG/logo.jpg}" alt="Logo Đồng Hồ" class="Logo"></a></td>
             <td class="main-title">
-                </ul>
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
-                    <li class="menu-item d-flex align-items-center" sec:authorize="isAuthenticated()"><span> Xin chào, <span sec:authentication="name"
-                                                                            style="margin-right: 20px;"></span> </span></li>
-                    <li class="menu-item" sec:authorize="isAuthenticated()">
-                        <a href="/login">Đăng xuất</a>
+                    <li class="main-title" sec:authorize="isAuthenticated()"><a> Xin chào, <span sec:authentication="name"></span> </a></li>
+                    <li sec:authorize="isAuthenticated()">
+                        <form style="border: none;" th:action="@{/logout}" method="post" >
+                            <button class="main-item" type="submit">Đăng xuất</button>
+                        </form>
                     </li>
-                    <li class="menu-item" sec:authorize="!isAuthenticated()"><a href="/login">Đăng nhập</a>
+                    <li sec:authorize="!isAuthenticated()"><a class="main-item" href="/login">Đăng nhập</a>
                     </li>
                 </ul>
-<!--                <a th:href="@{/login}" class="main-item" sec:authorize="!isAuthenticated()">Đăng nhập</a>-->
-<!--                <a th:href="@{/login}" class="main-item" type="submit" sec:authorize="isAuthenticated()">Đăng xuất</a>-->
             </td>
         </tr>
     </table>
@@ -49,54 +44,7 @@
         <li class="menu-item"><a th:href="@{/service}">Dịch vụ</a></li>
     </ul>
 </div>
-<!--<div class="containerms">-->
-<!--    <table class="main">-->
-<!--        <tr>-->
-<!--            <td class="main-title"><p>Nhóm 2</p></td>-->
-<!--            <td class="main-title"><a th:href="@{/}"><img th:src="@{/IMG/logo.jpg}" alt="Logo Đồng Hồ" class="Logo"></a></td>-->
-<!--            <td class="main-title">-->
-<!--            </td>-->
-<!--        </tr>-->
-<!--    </table>-->
-
-<!--    <nav class="navbar navbar-expand-lg navbar-light bg-primary">-->
-<!--        <div class="container-fluid"><a class="navbar-brand text-white" href="/">Shop Đồng Hồ</a>-->
-<!--            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"-->
-<!--                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span-->
-<!--                    class="navbar-toggler-icon"></span></button>-->
-<!--            <div class="collapse navbar-collapse" id="navbarSupportedContent">-->
-<!--                <ul class="navbar-nav me-auto mb-2 mb-lg-0">-->
-<!--                    <li class="nav-item"><a class="nav-link text-white active" aria-current="page"-->
-<!--                                            href="/products">Sản Phẩm</a></li>-->
-<!--                    <li class="nav-item"><a class="nav-link text-white active" aria-current="page"-->
-<!--                                            href="/service">Dịch vụ</a></li>-->
-<!--                    <li class="nav-item" sec:authorize="hasAnyAuthority('ADMIN')"><a th:href="@{/categories}"-->
-<!--                                                                                     class="nav-link text-white">Danh mục</a></li>-->
-<!--                    <li class="nav-item" sec:authorize="hasAnyAuthority('ADMIN')"><a th:href="@{/products/add}"-->
-<!--                                                                                     class="nav-link text-white">Thêm sản phẩm</a></li>-->
-<!--                    <li class="nav-item" sec:authorize="hasAnyAuthority('ADMIN')"><a th:href="@{/categories/add}"-->
-<!--                                                                                     class="nav-link text-white">Thêm loại sản phẩm</a></li>-->
-
-<!--                </ul>-->
-<!--                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">-->
-<!--                    <li class="nav-item d-flex align-items-center" sec:authorize="isAuthenticated()"><span-->
-<!--                            class="navbar-text text-white"> Xin chào, <span sec:authentication="name"-->
-<!--                                                                            style="margin-right: 20px;"></span> </span></li>-->
-<!--                    <li class="nav-item" sec:authorize="isAuthenticated()">-->
-<!--                        <form th:action="@{/logout}" method="post">-->
-<!--                            <button class="btn btn-outline-light" type="submit">Đăng xuất</button>-->
-<!--                        </form>-->
-<!--                    </li>-->
-<!--                    <li class="nav-item" sec:authorize="!isAuthenticated()"><a class="btn btn-outline-light" href="/login">Đăng nhập</a>-->
-<!--                    </li>-->
-<!--                </ul>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </nav>-->
-
-<!--</div>-->
-
-<div class="container mt-5">
+<div>
     <section layout:fragment="content"> <!-- Nội dung cụ thể của từng trang sẽ được đặt tại đây --> </section>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
